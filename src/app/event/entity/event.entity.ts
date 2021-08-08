@@ -19,9 +19,6 @@ export class Event extends BasicEntity {
   @Column({ type: Date })
   startedAt: Date;
 
-  @Column({ type: Date })
-  finishedAt: Date;
-
   @ManyToOne(() => Group, (group) => group.events)
   group: Group;
 }
