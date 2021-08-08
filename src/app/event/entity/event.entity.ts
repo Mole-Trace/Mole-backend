@@ -1,7 +1,8 @@
 import { BasicEntity } from '../../../common/basic/basic';
 import { Group } from '../../group/entity/group.entity';
-import { Column, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
 
+@Entity()
 export class Event extends BasicEntity {
   @Column()
   identifier: string;
