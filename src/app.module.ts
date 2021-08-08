@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { EventModule } from './app/event/event.module';
 import { GroupModule } from './app/group/group.module';
 import { CommonModule } from './common/common.module';
-import { EventModule } from './event/event.module';
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
