@@ -1,4 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller()
-export class ListenController {}
+@Controller('listen')
+export class ListenController {
+  @Get()
+  async test() {
+    return 'ok';
+  }
+}
