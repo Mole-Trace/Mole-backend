@@ -1,4 +1,5 @@
 import { AuthModule } from './app/auth/auth.module';
+import { CacheModule } from './app/cache/cache.module';
 import { EventModule } from './app/event/event.module';
 import { GroupModule } from './app/group/group.module';
 import { ListenModule } from './app/listen/listen.module';
@@ -23,6 +24,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     ListenModule,
     UserModule,
     AuthModule,
+    CacheModule,
   ],
 })
 export class AppModule {}
