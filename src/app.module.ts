@@ -4,23 +4,19 @@ import { GroupModule } from './app/group/group.module';
 import { ListenModule } from './app/listen/listen.module';
 import { UserModule } from './app/user/user.module';
 import { CommonModule } from './common/common.module';
+import typeormConfig from './config/typeorm.config';
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: '127.0.0.1',
-      username: 'postgres',
-      password: 'root',
-      port: 5432,
-      database: 'reza',
-      synchronize: true,
-      entities: ['dist/**/*.entity{.ts,.js}'],
-      autoLoadEntities: true,
-      logging: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [typeormConfig],
+      envFilePath: ['.env'],
     }),
+    TypeOrmModule.forRoot(typeormConfig()),
     GroupModule,
     CommonModule,
     EventModule,
