@@ -1,11 +1,11 @@
+import { AuthModule } from './app/auth/auth.module';
 import { EventModule } from './app/event/event.module';
 import { GroupModule } from './app/group/group.module';
 import { ListenModule } from './app/listen/listen.module';
+import { UserModule } from './app/user/user.module';
 import { CommonModule } from './common/common.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './app/user/user.module';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
