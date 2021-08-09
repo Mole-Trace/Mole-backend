@@ -21,6 +21,7 @@ export class MemdbService {
   }
 
   async reset(): Promise<void> {
-    await this.memdb.reset();
+    const value = await this.memdb.reset();
+    return value;
   }
 }

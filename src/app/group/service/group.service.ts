@@ -32,4 +32,13 @@ export class GroupService {
 
     return createdGroup;
   }
+
+  async findByToken(token: string): Promise<Group> {
+    const group = await this.groupRepository
+      .createQueryBuilder('group')
+      .where({ token })
+      .getOne();
+
+    return group;
+  }
 }

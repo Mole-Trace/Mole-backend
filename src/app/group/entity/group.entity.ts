@@ -12,6 +12,9 @@ export class Group extends BasicEntity {
   @Column()
   token: string;
 
+  @Column({ type: Date, nullable: true })
+  expire: Date;
+
   @ManyToMany(() => User, (user) => user.groups)
   users: User[];
 
