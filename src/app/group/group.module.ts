@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [TypeOrmModule.forFeature([GroupRepository])],
   providers: [GroupService],
+  exports: [GroupService],
   controllers: [GroupController],
 })
 export class GroupModule {}

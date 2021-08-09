@@ -1,11 +1,7 @@
 import { Group } from '../../group/entity/group.entity';
 import { GroupService } from '../../group/service/group.service';
 import { MemdbService } from '../../memdb/service/memdb.service';
-import {
-  ForbiddenException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ListenService {

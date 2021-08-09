@@ -1,5 +1,6 @@
 import { GroupModule } from '../group/group.module';
 import { ListenController } from './controller/listen.controller';
+import { ListenService } from './service/listen.service';
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
@@ -16,6 +17,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       },
     ]),
   ],
+  providers: [ListenService],
   controllers: [ListenController],
 })
 export class ListenModule {}
