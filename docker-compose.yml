@@ -8,3 +8,8 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: root
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
