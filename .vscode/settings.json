@@ -5,6 +5,7 @@
 		"microservice",
 		"nestjs",
 		"prebuild",
-		"trivago"
+		"trivago",
+		"uuidv"
 	]
 }

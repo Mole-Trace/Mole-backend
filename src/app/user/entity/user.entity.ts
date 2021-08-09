@@ -1,6 +1,6 @@
 import { BasicEntity } from '../../../common/basic/basic';
 import { Group } from '../../group/entity/group.entity';
-import { Column, Entity, JoinTable, ManyToMany, OneToMany } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 
 @Entity()
 export class User extends BasicEntity {
@@ -19,7 +19,7 @@ export class User extends BasicEntity {
   @Column()
   password: string;
 
-  @ManyToMany(() => Group)
+  @ManyToMany(() => Group, (group) => group.users)
   @JoinTable()
   groups: Group[];
 }
