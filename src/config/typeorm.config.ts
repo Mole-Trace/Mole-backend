@@ -7,7 +7,7 @@ export default (): TypeOrmModuleOptions => ({
   password: process.env.DB_PASSWORD,
   port: +process.env.DB_PORT,
   database: process.env.DB_NAME,
-  synchronize: process.env.NODE_ENV === 'development' ? true : false,
+  synchronize: true,
   entities: ['dist/**/*.entity{.ts,.js}'],
   autoLoadEntities: true,
   logging: true,

@@ -2,6 +2,7 @@ import { AppModule } from './app.module';
 import redisConfig from './config/redis.config';
 import { enableSwagger } from './plugin/swagger.plugin';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
@@ -30,9 +31,9 @@ async function bootstrap() {
 
   await app.listen(3000);
 
-  logger.log(`Server are Running in http://localhost:${3500}`, 'bootstrap');
+  logger.log(`Server are Running in http://localhost:${3000}`, 'bootstrap');
   logger.log(
-    `swagger are available at http://localhost:${3500}/${'swagger'}`,
+    `swagger are available at http://localhost:${3000}/${'swagger'}`,
     'swagger',
   );
 }
