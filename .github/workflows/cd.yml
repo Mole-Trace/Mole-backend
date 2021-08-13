@@ -12,7 +12,7 @@ jobs:
       - name: test
         run: echo it is a test
       - name: ls
-        run: ls
+        run: ls -ltrh
 
   deployment:
     needs: [test]
