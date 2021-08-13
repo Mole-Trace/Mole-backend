@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: test
         run: echo it is a test
+      - name: ls
+        run: ls
 
   deployment:
     needs: [test]
