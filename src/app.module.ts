@@ -5,6 +5,7 @@ import { ListenModule } from './app/listen/listen.module';
 import { MemdbModule } from './app/memdb/memdb.module';
 import { UserModule } from './app/user/user.module';
 import { CommonModule } from './common/common.module';
+import redisConfig from './config/redis.config';
 import typeormConfig from './config/typeorm.config';
 import { Module } from '@nestjs/common';
 import { CacheModule } from '@nestjs/common';
@@ -16,13 +17,13 @@ import * as redisStore from 'cache-manager-redis-store';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [typeormConfig],
+      load: [typeormConfig, redisConfig],
       envFilePath: ['.env'],
     }),
     TypeOrmModule.forRoot(typeormConfig()),
     CacheModule.register({
       store: redisStore,
-      url: 'redis://localhost:6379',
+      url: redisConfig().URI,
     }),
     GroupModule,
     CommonModule,

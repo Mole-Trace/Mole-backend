@@ -1,3 +1,4 @@
+import redisConfig from '../../config/redis.config';
 import { MemdbService } from './service/memdb.service';
 import { CacheModule, Global, Module } from '@nestjs/common';
 import * as redisStore from 'cache-manager-redis-store';
@@ -7,7 +8,7 @@ import * as redisStore from 'cache-manager-redis-store';
   imports: [
     CacheModule.register({
       store: redisStore,
-      url: 'redis://localhost:6379',
+      url: redisConfig().URI,
     }),
   ],
   providers: [MemdbService],

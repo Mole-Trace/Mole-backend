@@ -1,4 +1,5 @@
 import { AppModule } from './app.module';
+import redisConfig from './config/redis.config';
 import { enableSwagger } from './plugin/swagger.plugin';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -12,7 +13,7 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.REDIS,
     options: {
-      url: 'redis://localhost:6379',
+      url: redisConfig().URI,
     },
   });
 
@@ -27,7 +28,7 @@ async function bootstrap() {
 
   await enableSwagger(app);
 
-  await app.listen(3500);
+  await app.listen(3000);
 
   logger.log(`Server are Running in http://localhost:${3500}`, 'bootstrap');
   logger.log(

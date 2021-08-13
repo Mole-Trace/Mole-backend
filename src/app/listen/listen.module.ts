@@ -1,3 +1,4 @@
+import redisConfig from '../../config/redis.config';
 import { GroupModule } from '../group/group.module';
 import { ListenController } from './controller/listen.controller';
 import { ListenService } from './service/listen.service';
@@ -12,7 +13,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'REDIS_SERVICE',
         transport: Transport.REDIS,
         options: {
-          url: 'redis://localhost:6379',
+          url: redisConfig().URI,
         },
       },
     ]),

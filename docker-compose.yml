@@ -1,15 +1,44 @@
 version: '3.1'
 
 services:
+
+  mole:
+    image: mole
+    container_name: mole-backend
+    restart: always
+    environment: 
+      # APP
+      NODE_ENV: production
+      # DATABSE
+      DB_HOST: mole-pg
+      DB_USERNAME: postgres
+      DB_PASSWORD: mole
+      DB_PORT: 5432
+      DB_NAME: mole
+      # REDIS
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    ports: 
+      - 3080:3000
+    depends_on: 
+      - db
+      - redis
+
   db:
     image: postgres
-    container_name: 'pg'
-    ports:
-      - 5432:5432
+    restart: always
+    container_name: mole-pg
+    volumes: 
+      - db-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: root
+      POSTGRES_PASSWORD: mole
+      POSTGRES_DB: mole
 
   redis:
     image: redis
-    ports:
-      - 6379:6379
+    container_name: mole-redis
+    restart: always
+
+
+volumes: 
+  db-data:
