@@ -6,18 +6,12 @@ on:
       - "main"
 
 jobs:
-  test:
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: test
-        run: echo it is a test
-      - name: ls
-        run: ls -ltrh
-
   deployment:
-    needs: [test]
     runs-on: "ubuntu-latest"
     steps:
+      - uses: actions/checkout@v2
+        name: Check out code
+    
       - name: Build and Push to docker hub
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
