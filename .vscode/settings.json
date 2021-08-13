@@ -9,6 +9,7 @@
 		"mkdir",
 		"nestjs",
 		"prebuild",
+		"smithers",
 		"trivago",
 		"uuidv"
 	]
